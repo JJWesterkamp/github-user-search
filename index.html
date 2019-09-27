@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>github-user-search</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
+    <link href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
     <!--[if IE]>
     <link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
     <!-- Add to home screen for Android and modern mobile browsers -->
-    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json">
-    <meta name="theme-color" content="#4DBA87">
+    <link href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json" rel="manifest">
+    <meta content="#4DBA87" name="theme-color">
 
     <!-- Add to home screen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="github-user-search">
-    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/apple-touch-icon-152x152.png">
-    <link rel="mask-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/safari-pinned-tab.svg" color="#4DBA87">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="github-user-search" name="apple-mobile-web-app-title">
+    <link href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/apple-touch-icon-152x152.png" rel="apple-touch-icon">
+    <link color="#4DBA87" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/safari-pinned-tab.svg" rel="mask-icon">
     <!-- Add to home screen for Windows -->
-    <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/msapplication-icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#000000">
+    <meta content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/msapplication-icon-144x144.png" name="msapplication-TileImage">
+    <meta content="#000000" name="msapplication-TileColor">
     <% for (var chunk of webpack.chunks) {
     for (var file of chunk.files) {
     if (file.match(/\.(js|css)$/)) { %>
-    <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>">
+    <link as="<%= file.match(/\.css$/)?'style':'script' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" rel="<%= chunk.initial?'preload':'prefetch' %>">
     <% }}} %>
 </head>
 <body>

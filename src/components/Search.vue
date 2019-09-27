@@ -4,28 +4,28 @@
 
             <h1>Search for a github user!</h1>
 
-            <form action="#" @submit="search()">
+            <form @submit="search()" action="#">
                 <label for="query-input">Search:</label>
-                <input type="text"
-                       id="query-input"
-                       v-model="searchParams.q"
-                       placeholder="Who are you looking for?">
+                <input id="query-input"
+                       placeholder="Who are you looking for?"
+                       type="text"
+                       v-model="searchParams.q">
 
                 <label for="page-size-input">Results per page</label>
                 <select id="page-size-input" v-model="searchParams.per_page">
 
-                    <option v-for="size in resultsPageSizes"
+                    <option :selected="size === searchParams.per_page"
                             :value="size"
-                            :selected="size === searchParams.per_page">
+                            v-for="size in resultsPageSizes">
                         {{size}}
                     </option>
                 </select>
 
-                <label for="query-input">Page number</label>
-                <input type="number"
+                <label for="page-number-input">Page number</label>
+                <input id="page-number-input"
                        min="1"
                        step="1"
-                       id="page-number-input"
+                       type="number"
                        v-model="searchParams.page"
                 >
 

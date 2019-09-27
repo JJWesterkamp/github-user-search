@@ -1,6 +1,6 @@
 <template>
     <div class="user">
-        <router-link class="button" :to="{ name: 'search' }">Back to search</router-link>
+        <router-link :to="{ name: 'search' }" class="button">Back to search</router-link>
         <pre>
             {{ user }}
         </pre>
@@ -21,7 +21,7 @@
         data() {
             return {
                 user: null,
-            }
+            };
         },
 
         mounted() {

@@ -12,7 +12,8 @@ app.get('/search', (req, res) => {
     const query = requestSearchParams(req);
 
     if (isNil(query.q)) {
-        res.status(422).json({ message: 'Missing required parameter: q' });
+        res.status(422)
+            .json({ message: 'Missing required parameter: q' });
         return;
     }
 
@@ -21,13 +22,15 @@ app.get('/search', (req, res) => {
         return;
     }
 
-    api.searchUsers(query).then(
-        (users) => {
-            Cache.putSearchResults(query, users);
-            res.json(users);
-        },
-        (error) => res.status(error.status || 500).json({ message: error.message }),
-    );
+    api.searchUsers(query)
+        .then(
+            (users) => {
+                Cache.putSearchResults(query, users);
+                res.json(users);
+            },
+            (error) => res.status(error.status || 500)
+                .json({ message: error.message }),
+        );
 });
 
 app.get('/user/:login', (req, res) => {
@@ -39,13 +42,15 @@ app.get('/user/:login', (req, res) => {
         return;
     }
 
-    api.getUser(login).then(
-        (user) => {
-            Cache.putUser(login, user);
-            res.json(user);
-        },
-        (error) => res.status(error.status || 500).json({ message: error.message }),
-    );
+    api.getUser(login)
+        .then(
+            (user) => {
+                Cache.putUser(login, user);
+                res.json(user);
+            },
+            (error) => res.status(error.status || 500)
+                .json({ message: error.message }),
+        );
 });
 
 app.listen(serverPort, () => {
